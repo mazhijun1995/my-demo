@@ -1,14 +1,26 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex'; // 从 'vuex' 中导入 createStore
 
 export default createStore({
   state: {
-  },
-  getters: {
+    count: 0,
   },
   mutations: {
+    increment(state) {
+      state.count++;
+    },
+    decrement(state) {
+      state.count--;
+    },
   },
   actions: {
+    increment({ commit }) {
+      commit('increment');
+    },
+    decrement({ commit }) {
+      commit('decrement');
+    },
   },
-  modules: {
-  }
-})
+  getters: {
+    getCount: (state) => state.count,
+  },
+});
